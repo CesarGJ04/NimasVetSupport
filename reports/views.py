@@ -39,12 +39,8 @@ def exportar_reporte(request, nombre_reporte):
     
     config = REPORTES[nombre_reporte]
 
-    with connection.cursor() as cursor:
-        cursor.execute(config["query"])
-        columns = [col[0] for col in cursor.description]
-        rows = cursor.fetchall()
+    df = pd.read_sql(config["query"], connection)
 
-    df = pd.DataFrame(rows, columns=columns)
     df = df.rename(columns=config["columns"])
 
     response = HttpResponse(
