@@ -26,6 +26,40 @@ REPORTES = {
             "dni": "DNI"
         },
         "filename": "unidades_produccion.xlsx"
+    },
+    "alpacas": {
+        "query": """
+            SELECT *
+            FROM vw_ReporteAlpacas
+            ORDER BY visited_at DESC
+        """,
+        "columns": {
+            "visited_at": "Fecha Visita",
+            "zona": "Zona",
+            "comunity_name": "Comunidad",
+            "sector_name": "Sector",
+            "up_responsable": "Responsable UP",
+            "personal_especialista": "Especialista",
+            "persona_responsable": "Responsable",
+            "actividad": "Actividad",
+            "hato_number": "Total Hato",
+            "hato_babies_number": "Crías",
+            "hato_mothers_number": "Madres",
+            "hato_males_number": "Machos",
+            "female_alpaca_earring_number": "Arete",
+            "female_alpaca_race": "Raza",
+            "female_alpaca_color": "Color",
+            "female_alpaca_age": "Edad",
+            "female_alpaca_category": "Categoría",
+            "female_alpaca_total_score": "Puntaje",
+            "empadre_date": "Fecha Empadre",
+            "alpacas_empadradas": "Empadradas",
+            "alpacas_empadradas_number": "N° Empadradas",
+            "male_empadre_number": "Machos Empadre",
+            "pregnant": "Preñadas",
+            "empty": "Vacías"
+        },
+        "filename": "reporte_alpacas.xlsx"
     }
 }
 

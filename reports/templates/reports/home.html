@@ -8,11 +8,13 @@
 <h1>📊 Módulo de Reportes</h1>
 
 <ul>
-    <li>
-        <a href="{% url 'exportar_reporte' 'unidades' %}">
-            Descargar Unidades de Producción
-        </a>
-    </li>
+    {% for key, reporte in reportes.items %}
+        <li>
+            <a href="{% url 'exportar_reporte' key %}">
+                Descargar {{ key|title }}
+            </a>
+        </li>
+    {% endfor %}
 </ul>
 
 </body>
