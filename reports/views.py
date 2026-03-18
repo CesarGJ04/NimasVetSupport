@@ -1,6 +1,7 @@
-from django.shortcuts import render
-import pandas as pd
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.db import connection
+import pandas as pd
 from .models import UnidadesProduccion
 # Create your views here.
 
@@ -10,33 +11,48 @@ def home(request):
 def reports_home(request):
     return render(request, "reports/home.html")
 
-def exportar_excel(request):
+REPORTES = {
+    "unidades": {
+        "query": """
+            SELECT *
+            FROM vw_unidades_produccion
+            ORDER BY responsable
+        """,
+        "columns": {
+            "Zona_nombre": "Zona",
+            "Comunity_name": "Comunidad",
+            "secto_name": "Sector", 
+            "responsable":"Responsable",
+            "dni": "DNI"
+        },
+        "filename": "unidades_produccion.xlsx"
+    }
+}
 
-    resultados = UnidadesProduccion.objects.raw("""
-        SELECT *
-        FROM vw_unidades_produccion
-        ORDER BY responsable
-    """)
+def reports_home(request):
+    return render(request, "reports/home.html")
 
-    data = [
-        {
-            "Zona": r.zona_nombre,
-            "Comunidad": r.community_name,
-            "Sector": r.sector_name,
-            "Responsable": r.responsable,
-            "DNI": r.dni
-        }
-        for r in resultados
-    ]
+def exportar_reporte(request, nombre_reporte):
 
-    df = pd.DataFrame(data)
+    if nombre_reporte not in REPORTES:
+        return HttpResponse("Reporte no encontrado", status=404)
+    
+    config = REPORTES[nombre_reporte]
+
+    with connection.cursor() as cursor:
+        cursor.execute(config["query"])
+        columns = [col[0] for col in cursor.description]
+        rows = cursor.fetchall()
+
+    df = pd.DataFrame(rows, columns=columns)
+    df = df.rename(columns=config["columns"])
 
     response = HttpResponse(
         content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
-    response["Content-Disposition"] = "attachment; filename=responsables.xlsx"
-
-    df.to_excel(response, index=False)
+    response["Content-Disposition"] = f'attachment; filename={config["filename"]}'
+    
+    df.to_excel(response, index=False, engine="openpyxl")
 
     return response

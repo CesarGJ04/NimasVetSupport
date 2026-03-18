@@ -7,11 +7,13 @@
 
 <h1>📊 Módulo de Reportes</h1>
 
-<p>Descargar reporte de unidades de producción:</p>
-
-<a href="{% url 'export_excel' %}">
-    <button>Descargar Excel</button>
-</a>
+<ul>
+    <li>
+        <a href="{% url 'exportar_reporte' 'unidades' %}">
+            Descargar Unidades de Producción
+        </a>
+    </li>
+</ul>
 
 </body>
 </html>
