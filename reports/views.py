@@ -9,7 +9,10 @@ def home(request):
     return HttpResponse("<h1>Django funcionando correctamente</h1>")
 
 def reports_home(request):
-    return render(request, "reports/home.html")
+    return render(request, "reports/home.html", {
+        "reportes": REPORTES
+    })
+
 
 REPORTES = {
     "unidades": {
@@ -19,8 +22,8 @@ REPORTES = {
             ORDER BY responsable
         """,
         "columns": {
-            "Zona_nombre": "Zona",
-            "Comunity_name": "Comunidad",
+            "zona_nombre": "Zona",
+            "comunity_name": "Comunidad",
             "secto_name": "Sector", 
             "responsable":"Responsable",
             "dni": "DNI"
@@ -63,8 +66,6 @@ REPORTES = {
     }
 }
 
-def reports_home(request):
-    return render(request, "reports/home.html")
 
 def exportar_reporte(request, nombre_reporte):
 

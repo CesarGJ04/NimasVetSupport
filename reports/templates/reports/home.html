@@ -10,7 +10,7 @@
 <ul>
     {% for key, reporte in reportes.items %}
         <li>
-            <a href="{% url 'exportar_reporte' key %}">
+            <a href="{% url 'export_report' key %}">
                 Descargar {{ key|title }}
             </a>
         </li>
