@@ -63,6 +63,38 @@ REPORTES = {
             "empty": "Vacías"
         },
         "filename": "reporte_alpacas.xlsx"
+    },
+    "Ovinos": {
+           "query":"""
+               SELECT *
+               FROM vw_ReporteOvinos
+               ORDER BY visited_at DESC
+            """,
+           "columns": {
+               "visited at": "Fecha Visita",
+               "zona": "Zona",
+               "comunidad": "Comunidad",
+               "sector": "Sector",
+               "up_responsable": "Responsable UP",
+               "personal_especialista": "Especialista",
+               "persona_responsable": "Responsable",
+               "actividad": "Actividad",
+               "selected_ovines": "Ovinos Seleccionados",
+               "synchronized_ovines": "Ovinos Sincronizados",
+               "inseminated_sheeps_corriedale": "Inseminados Corriedale",
+               "inseminated_sheeps_criollas": "Inseminados Criollos",
+               "pregnant": "Preñadas",
+               "empty": "Vacías",
+               "not_evaluated": "No Evaluadas",
+               "baby_males": "Crías Machos",
+               "baby_females": "Crías Hembras",
+               "baby_deaths": "Muertes Crías",
+               "course_female_attendance": "Asistencia Mujeres",
+               "course_male_attendance": "Asistencia Hombres",
+               "technical_assistance_attendance": "Asistencia Técnica",
+               "ovinos_number": "Total Ovinos"
+        },
+        "filename": "reporte_ovinos.xlsx"
     }
 }
 
