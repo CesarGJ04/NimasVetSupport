@@ -64,37 +64,113 @@ REPORTES = {
         },
         "filename": "reporte_alpacas.xlsx"
     },
-    "Ovinos": {
-           "query":"""
-               SELECT *
-               FROM vw_ReporteOvinos
-               ORDER BY visited_at DESC
-            """,
-           "columns": {
-               "visited at": "Fecha Visita",
-               "zona": "Zona",
-               "comunidad": "Comunidad",
-               "sector": "Sector",
-               "up_responsable": "Responsable UP",
-               "personal_especialista": "Especialista",
-               "persona_responsable": "Responsable",
-               "actividad": "Actividad",
-               "selected_ovines": "Ovinos Seleccionados",
-               "synchronized_ovines": "Ovinos Sincronizados",
-               "inseminated_sheeps_corriedale": "Inseminados Corriedale",
-               "inseminated_sheeps_criollas": "Inseminados Criollos",
-               "pregnant": "Preñadas",
-               "empty": "Vacías",
-               "not_evaluated": "No Evaluadas",
-               "baby_males": "Crías Machos",
-               "baby_females": "Crías Hembras",
-               "baby_deaths": "Muertes Crías",
-               "course_female_attendance": "Asistencia Mujeres",
-               "course_male_attendance": "Asistencia Hombres",
-               "technical_assistance_attendance": "Asistencia Técnica",
-               "ovinos_number": "Total Ovinos"
+    "ovinos": {
+        "query": """
+            SELECT *
+            FROM vw_ReporteOvinos
+            ORDER BY visited_at DESC
+        """,
+        "columns": {
+            "visited_at": "Fecha Visita",
+            "zona": "Zona",
+            "comunidad": "Comunidad",
+            "sector": "Sector",
+            "up_responsable": "Responsable UP",
+            "personal_especialista": "Especialista",
+            "persona_responsable": "Responsable",
+            "actividad": "Actividad",
+            "selected_ovines": "Ovinos Seleccionados",
+            "synchronized_ovines": "Ovinos Sincronizados",
+            "inseminated_sheeps_corriedale": "Inseminados Corriedale",
+            "inseminated_sheeps_criollas": "Inseminados Criollos",
+            "pregnant": "Preñadas",
+            "empty": "Vacías",
+            "not_evaluated": "No Evaluadas",
+            "baby_males": "Crías Machos",
+            "baby_females": "Crías Hembras",
+            "baby_deaths": "Muertes Crías",
+            "course_female_attendance": "Asistencia Mujeres",
+            "course_male_attendance": "Asistencia Hombres",
+            "technical_assistance_attendance": "Asistencia Técnica",
+            "ovinos_number": "Total Ovinos"
         },
         "filename": "reporte_ovinos.xlsx"
+    },
+    "vacunos": {
+        "query": """
+            SELECT *
+            FROM vw_ReporteVacunos
+            ORDER BY visited_at DESC
+        """,
+        "columns": {
+            "visited_at": "Fecha Visita",
+            "zona": "Zona",
+            "comunidad": "Comunidad",
+            "sector": "Sector",
+            "up_responsable": "Responsable UP",
+            "personal_especialista": "Especialista",
+            "persona_responsable": "Responsable",
+            "actividad": "Actividad",
+            "bull_name": "Nombre Toro",
+            "bull_race": "Raza Toro",
+            "pajilla_type": "Tipo Pajilla",
+            "pajilla_origin": "Origen Pajilla",
+            "pajillas_number": "N° Pajillas",
+            "cow_name": "Nombre Vaca",
+            "cow_race": "Raza Vaca",
+            "service_number": "N° Servicios",
+            "pregnant": "Preñadas",
+            "empty": "Vacías",
+            "birthday": "Fecha Nacimiento",
+            "earring_number": "N° Arete",
+            "baby_name": "Nombre Cría",
+            "male": "Machos",
+            "female": "Hembras",
+            "death": "Muertes",
+            "baby_bull_name": "Padre Cría",
+            "baby_cow_name": "Madre Cría",
+            "female_attendance": "Asistencia Mujeres",
+            "male_attendance": "Asistencia Hombres",
+            "technical_assistance_attendance": "Asistencia Técnica",
+            "vacunos_number": "Total Vacunos"
+        },
+        "filename": "reporte_vacunos.xlsx"
+    },
+    "desparasitacion": {
+        "query": """
+            SELECT *
+            FROM vw_ReporteDesparacitacion
+            ORDER BY visited_at DESC
+        """,
+        "columns": {
+            "visited_at": "Fecha Visita",
+            "zona": "Zona",
+            "comunidad": "Comunidad",
+            "sector": "Sector",
+            "up_responsable": "Responsable UP",
+            "personal_especialista": "Especialista",
+            "persona_responsable": "Responsable",
+            "actividad": "Actividad",
+            "v_race": "Raza Vacunos",
+            "v_dewormed": "Vacunos Desparasitados",
+            "v_no_dewormed": "Vacunos No Desparasitados",
+            "v_total": "Total Vacunos",
+            "o_race": "Raza Ovinos",
+            "o_dewormed": "Ovinos Desparasitados",
+            "o_no_dewormed": "Ovinos No Desparasitados",
+            "o_total": "Total Ovinos",
+            "a_race": "Raza Alpacas",
+            "a_dewormed": "Alpacas Desparasitadas",
+            "a_no_dewormed": "Alpacas No Desparasitadas",
+            "a_total": "Total Alpacas",
+            "l_race": "Raza Llamas",
+            "l_dewormed": "Llamas Desparasitadas",
+            "l_no_dewormed": "Llamas No Desparasitadas",
+            "l_total": "Total Llamas",
+            "c_total": "Total Camélidos",
+            "total": "Total General"
+        },
+        "filename": "reporte_desparasitacion.xlsx"
     }
 }
 
