@@ -13,8 +13,8 @@ class Migration(migrations.Migration):
     dependencies = []
 
     operations = [
-        migrations.RunSQL(load_sql("reports/sql/vw_reportealpacas.sql")),
-        migrations.RunSQL(load_sql("reports/sql/vw_reporteovinos.sql")),
-        migrations.RunSQL(load_sql("reports/sql/vw_reportevacunos.sql")),
-        migrations.RunSQL(load_sql("reports/sql/vw_unidades_produccion.sql")),
+        migrations.RunSQL(load_sql("vw_reportealpacas.sql")),
+        migrations.RunSQL(load_sql("vw_reporteovinos.sql")),
+        migrations.RunSQL(load_sql("vw_reportevacunos.sql")),
+        migrations.RunSQL(load_sql("vw_unidades_produccion.sql")),
     ]
