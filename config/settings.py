@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_local_dbbu',
-        'USER': 'postgres',
-        'PASSWORD': 'dani16',
-        'HOST': 'localhost',
+        'NAME': 'cesem_web',
+        'USER': 'cesem_web',
+        'PASSWORD': 'azzhYaEekNKQCEY',
+        'HOST': 'cesem-web-db.flycast',
         'PORT': '5432',
     }
 }
