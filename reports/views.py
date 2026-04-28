@@ -99,7 +99,7 @@ REPORTES = {
     "vacunos": {
         "query": """
             SELECT *
-            FROM vw_ReporteVacunos
+            FROM vw_reportevacunos
             ORDER BY visited_at DESC
         """,
         "columns": {
@@ -183,6 +183,8 @@ def exportar_reporte(request, nombre_reporte):
     config = REPORTES[nombre_reporte]
 
     df = pd.read_sql(config["query"], connection)
+
+    print(df.columns)
 
     df = df.rename(columns=config["columns"])
 
