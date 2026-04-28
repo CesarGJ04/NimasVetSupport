@@ -1,3 +1,5 @@
+CREATE OR REPLACE VIEW public.vw_CampaniaDesparacitacion
+AS
 SELECT 
     vdw.visited_at AS fecha_visita,
     cz.name AS zona,

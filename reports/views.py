@@ -139,39 +139,70 @@ REPORTES = {
     "desparasitacion": {
         "query": """
             SELECT *
-            FROM vw_ReporteDesparacitacion
-            ORDER BY visited_at DESC
+            FROM vw_campaniadesparacitacion
+            ORDER BY fecha_visita DESC
         """,
         "columns": {
-            "visited_at": "Fecha Visita",
+            "fecha_visita": "Fecha Visita",
             "zona": "Zona",
             "comunidad": "Comunidad",
             "sector": "Sector",
             "up_responsable": "Responsable UP",
+            "up_integrante": "Integrante UP",
             "personal_especialista": "Especialista",
-            "persona_responsable": "Responsable",
+            "personal_responsable": "Responsable",
             "actividad": "Actividad",
-            "v_race": "Raza Vacunos",
-            "v_dewormed": "Vacunos Desparasitados",
-            "v_no_dewormed": "Vacunos No Desparasitados",
-            "v_total": "Total Vacunos",
-            "o_race": "Raza Ovinos",
-            "o_dewormed": "Ovinos Desparasitados",
-            "o_no_dewormed": "Ovinos No Desparasitados",
-            "o_total": "Total Ovinos",
-            "a_race": "Raza Alpacas",
-            "a_dewormed": "Alpacas Desparasitadas",
-            "a_no_dewormed": "Alpacas No Desparasitadas",
-            "a_total": "Total Alpacas",
-            "l_race": "Raza Llamas",
-            "l_dewormed": "Llamas Desparasitadas",
-            "l_no_dewormed": "Llamas No Desparasitadas",
-            "l_total": "Total Llamas",
-            "c_total": "Total Camélidos",
+
+            "vacunos_raza": "Raza Vacunos",
+            "vacunos_desparacitados": "Vacunos Desparasitados",
+            "vacunos_no_desparacitados": "Vacunos No Desparasitados",
+            "total_vacunos": "Total Vacunos",
+
+            "ovinos_raza": "Raza Ovinos",
+            "ovinos_desparasitados": "Ovinos Desparasitados",
+            "ovinos_no_desparasitados": "Ovinos No Desparasitados",
+            "total_ovinos": "Total Ovinos",
+
+            "alpacas_raza": "Raza Alpacas",
+            "alpacas_desparacitadas": "Alpacas Desparasitadas",
+            "alpacas_no_desparacitadas": "Alpacas No Desparasitadas",
+            "total_alpacas": "Total Alpacas",
+
+            "llamas_raza": "Raza Llamas",
+            "llamas_desparacitadas": "Llamas Desparasitadas",
+            "llamas_no_desparacitadas": "Llamas No Desparasitadas",
+            "total_llamas": "Total Llamas",
+
+            "total_canes": "Total Canes",
             "total": "Total General"
         },
-        "filename": "reporte_desparasitacion.xlsx"
-    }
+        "filename": "campania_desparasitacion.xlsx"
+    },
+    "sanidad_animal": {
+        "query": """
+            SELECT *
+            FROM vw_sanidadanimal
+            ORDER BY fecha_visita DESC
+        """,
+        "columns": {
+            "fecha_visita": "Fecha Visita",
+            "zona": "Zona",
+            "comunidad": "Comunidad",
+            "sector": "Sector",
+            "up_responsable": "Responsable UP",
+            "up_integrante": "Integrante UP",
+            "personal_especialista": "Especialista",
+            "personal_responsable": "Responsable",
+            "actividad": "Actividad",
+            "enfermedad_observacion": "Enfermedad Observada",
+            "diagnostico": "Diagnóstico",
+            "vacunos": "Vacunos",
+            "ovinos": "Ovinos",
+            "alpacas": "Alpacas",
+            "llamas": "Llamas"
+        },
+        "filename": "sanidad_animal.xlsx"
+    },
 }
 
 
